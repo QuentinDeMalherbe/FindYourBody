@@ -1,1 +1,6 @@
 <h1>index</h1>
+  <ul>
+    <% @activities.each do |activity| %>
+    <li> <%= activity.name %> <%= activity.category.name %></li>
+    <% end %>
+  </ul>

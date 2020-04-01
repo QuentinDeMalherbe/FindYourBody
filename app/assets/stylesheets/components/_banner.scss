@@ -1,0 +1,23 @@
+.banner {
+  background-image: linear-gradient(rgba(245, 62, 0, 0.8), rgba(255, 186, 73, 0.5) ),
+                  url("banner.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.banner-element {
+  padding: 8px;
+  flex-basis: 806px;
+  flex-shrink: 1;
+  flex-grow: 0;
+  background-color: rgba(33, 104, 105, 0.08);
+  border-radius: 10px;
+}
+.titre {
+}
+
+

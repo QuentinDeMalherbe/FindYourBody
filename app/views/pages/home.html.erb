@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="banner-element">
+
+    <div class="titre">
+      <h1>Find Your Buddy</h1>
+      <h2>Organise en 3 cliques ton activité sportive de la semaine</h2>
+      <p>Envie de jouer à ton sport préféré, mais il te manque des coéquipers? Find Your Buddy te permet très facilement et rapidement de trouver des personnes pour pratiquer avec toi </p>
+    </div>
+    <div class="form-recherche-activity">
+      <h2>Trouve ton activité</h2>
+      <%= simple_form_for :search, url:activities_path, method:'GET' do |f| %>
+        <%= f.input :sport_ou_lieu_ou_category, label:false, input_html: {value: ""} %>
+        <%= f.input :level, label:'Niveau' , collection: Activity::LEVEL %>
+        <%= f.input :date, input_html: { class: "datepicker"} %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- mettre en modal sign_in up -->
+
