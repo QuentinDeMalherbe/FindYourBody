@@ -40,7 +40,7 @@ puts 'Creating 10 fake activities...'
     name: Faker::Name.first_name,
     date: Faker::Date.between(from: Date.today, to: 1.month.from_now),
     level: rand(1..5),
-    lieu: Faker::Address.full_address,
+    address: Faker::Address.full_address,
     comment: Faker::Lorem.paragraphs(number: 1),
     price: Faker::Number.decimal_part(digits: 2),
     user_id: User.find(offset2).id,

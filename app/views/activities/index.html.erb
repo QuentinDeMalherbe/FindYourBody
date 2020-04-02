@@ -1,6 +1,26 @@
-<h1>index</h1>
-  <ul>
+<h1> navbar</h1>
+<div class= "container">
+  <h1 class= 'link-home'>
+    <i class="fas fa-chevron-double-left"></i> <%= link_to 'Refaire une recherche', root_path  %>
+  </h1>
+  <div class= "grid">
     <% @activities.each do |activity| %>
-    <li> <%= activity.name %> <%= activity.category.name %></li>
+      <%= link_to activity_path(activity) do %>
+        <div class = 'card_activity'>
+          <div class="activity-picture">
+            <%= cl_image_tag(activity.category.photo.key, format: :jpg, style: 'width: 100% ;padding: 2%; border-radius: 13px;') %>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h3><%= activity.name %> </h3>
+              <h4><%= activity.category.name %></h4>
+            </div>
+            <div class="description">
+              <p><%= Activity.level_in_string(activity.level) %></p>
+              <p><%= activity.price %> €</p>
+            </div>
+          </div>
+        </div>
+      <% end%>
     <% end %>
-  </ul>
+</div>

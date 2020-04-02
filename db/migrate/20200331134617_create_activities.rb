@@ -4,7 +4,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :name
       t.date :date
       t.integer :level
-      t.string :lieu
+      t.string :address
       t.text :comment
       t.string :price
       t.references :user, foreign_key: true

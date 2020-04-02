@@ -1,0 +1,17 @@
+.button-primary {
+  text-decoration: none;
+  background-color: $blue;
+  border-radius : 30px;
+  padding: 4px 24px;
+  color: $gray;
+  border : none;
+  &:hover {
+    background-color: $gray;
+    color: $blue;
+    border : 2px solid $gray;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}
+

@@ -1,0 +1,46 @@
+.card_activity {
+ background-color: $gray;
+ border-radius: 10px;
+ box-shadow: 1px 2px 10px $gray;
+  h3 {
+    margin-left: 5px;
+    font-size: 24px;
+    color: $dark-gray;
+  }
+  h4 {
+    margin-left: 5px;
+    font-size: 20px;
+    color: $dark-gray;
+  }
+  p {
+    padding:0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom :8px;
+    font-size: 16px;
+    color: $dark-gray;
+  }
+  &:hover {
+    background-color: $blue;
+    h3,h4,p {
+      color: $gray;
+    }
+  }
+}
+
+
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  flex-grow: 1;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}

@@ -17,7 +17,31 @@
   background-color: rgba(33, 104, 105, 0.08);
   border-radius: 10px;
 }
-.titre {
+
+.banner h2,p,form {
+  padding: 0px 0px 0px 16px;
 }
 
 
+
+.level-date-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.level-date-inline *{
+  flex-grow: 1;
+}
+.space {
+  width : 16px;
+  height: 16px;
+  flex-grow: 0;
+}
+
+form-control:disabled, .form-control[readonly] {
+  background-color: white;
+}
+
+input::-webkit-input-placeholder {
+color: $body-font !important;
+}
