@@ -1,7 +1,53 @@
-<h1>hello</h1>
-<div id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="flex">
+  <div class="show-description">
+    <%= cl_image_tag(@activity.category.photo.key, format: :jpg, style: 'width: 100% ;padding: 2%; border-radius: 13px;') %>
+    <div class="show-description-text">
+      <h3><%= @activity.name %> </h3>
+      <h4><%= @activity.category.name %></h4>
+      <p><%= Activity.level_in_string(@activity.level) %></p>
+      <p><%= @activity.price %> €</p>
+      <p><%= @activity.comment %></p>
+    </div>
+    <%= simple_form_for([@activity, @book]) do |f| %>
+      <%= f.button :submit, "Réserver", class:"button-primary"%>
+    <% end %>
+  </div>
+  <div id="map">
+  </div>
 </div>
+<script>
+  mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>";
+  var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [ <%= @activity.longitude %>, <%= @activity.latitude %>], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+  });
+
+  var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [<%= @activity.longitude %>, <%= @activity.latitude %>]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Washington, D.C.'
+      }
+    }]
+  };
+
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+  });
+
+</script>

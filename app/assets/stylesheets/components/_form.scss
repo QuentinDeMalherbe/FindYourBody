@@ -1,0 +1,10 @@
+.in-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.in-line * {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+

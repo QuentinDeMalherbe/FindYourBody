@@ -18,7 +18,7 @@
   border-radius: 10px;
 }
 
-.banner h2,p,form {
+.banner h1, h2,p,form {
   padding: 0px 0px 0px 16px;
 }
 
@@ -44,4 +44,20 @@ form-control:disabled, .form-control[readonly] {
 
 input::-webkit-input-placeholder {
 color: $body-font !important;
+}
+
+.connexion-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connexion-button button {
+ margin : 5px;
+}
+
+.en-tete {
+  display: flex;
+  justify-content: space-between;
+  margin : 0px 16px;
 }

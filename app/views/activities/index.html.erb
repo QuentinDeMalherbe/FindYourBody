@@ -1,7 +1,7 @@
-<h1> navbar</h1>
+<%= render 'shared/navbar' %>
 <div class= "container">
   <h1 class= 'link-home'>
-    <i class="fas fa-chevron-double-left"></i> <%= link_to 'Refaire une recherche', root_path  %>
+    <i class="fas fa-chevron-double-left"></i> <%= link_to 'Nouvelle recherche', root_path  %>
   </h1>
   <div class= "grid">
     <% @activities.each do |activity| %>

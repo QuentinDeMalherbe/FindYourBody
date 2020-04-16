@@ -1,6 +1,42 @@
 body {
    background: linear-gradient(rgba(245, 62, 0, 0.9), rgba(255, 186, 73, 0.9));
    height :100vh;
-   display:flex;
 
+}
+
+.flex {
+  display: flex;
+}
+
+
+#map {
+  height: 100vh;
+  width: 50%;
+  border : 10px solid $blue;
+  border-radius: 10px;
+}
+.show-description {
+  height: 100vh;
+  width: 50%;
+  text-align: left;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .flex {
+    display: block;
+  }
+  .show-description {
+  height: 80vh;
+  }
+}
+
+.marker {
+  background-image: url('mapbox-icon.svg');
+  opacity: 0.5;
+  background-size: cover;
+  width: 60px;
+  height: 80px;
+  cursor: pointer;
 }

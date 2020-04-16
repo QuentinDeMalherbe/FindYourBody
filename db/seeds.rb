@@ -32,22 +32,22 @@ end
 
 puts'Users finished'
 
-puts 'Creating 10 fake activities...'
-10.times do
-  offset1 = rand(1..Category.count)
-  offset2 = rand(1..User.count)
-  activity = Activity.new(
-    name: Faker::Name.first_name,
-    date: Faker::Date.between(from: Date.today, to: 1.month.from_now),
-    level: rand(1..5),
-    address: Faker::Address.full_address,
-    comment: Faker::Lorem.paragraphs(number: 1),
-    price: Faker::Number.decimal_part(digits: 2),
-    user_id: User.find(offset2).id,
-    category_id: Category.find(offset1).id
-  )
-  activity.save!
-end
-puts'Activities finished'
+# puts 'Creating 10 fake activities...'
+# 10.times do
+#   offset1 = rand(1..Category.count)
+#   offset2 = rand(1..User.count)
+#   activity = Activity.new(
+#     name: Faker::Name.first_name,
+#     date: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+#     level: rand(1..5),
+#     address: Faker::Address.full_address,
+#     comment: Faker::Lorem.paragraphs(number: 1),
+#     price: Faker::Number.decimal_part(digits: 2),
+#     user_id: User.find(offset2).id,
+#     category_id: Category.find(offset1).id
+#   )
+#   activity.save!
+# end
+# puts'Activities finished'
 
 puts 'Finished!'

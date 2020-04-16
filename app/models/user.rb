@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :activities
   has_one_attached :photo
+  has_many :books
+  validates :first_name, :last_name, :pseudo, :photo, :phone, presence: true
 end

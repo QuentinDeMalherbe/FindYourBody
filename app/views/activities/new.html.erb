@@ -1,0 +1,19 @@
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="form-recherche-activity" style=" background-color: rgba(33, 104, 105, 0.2); border-radius: 10px; padding: 8px;">
+      <h2>Crée ton activité</h2>
+      <%= simple_form_for @activity do |f| %>
+        <%= f.input :name, label:false, placeholder: 'nom de ton activité', input_html: {value: ""}, required: true %>
+        <%= f.input :category_id, label:false , collection: Category.all, prompt: 'Sport',class:'level_form', required: true %>
+        <%= f.input :address, label:false, placeholder: 'adresse', input_html: {value: ""} , required: true%>
+        <%= f.input :price, label:false, placeholder: 'prix', input_html: {value: ""} , required: true%>
+        <div class="level-date-inline">
+          <%= f.input :level, label:false , collection: Activity::LEVEL, prompt: 'Niveau',class:'level_form', required: true %>
+          <div class="space"></div>
+          <%= f.input :date, label:false, placeholder:'Date',input_html: { class: "datepicker"}, required: true%>
+        </div>
+        <%= f.input :comment, label:false, placeholder: 'petit descriptif', input_html: {value: ""} %>
+        <%= f.submit "Et voilà", class: "button-primary" %>
+      <% end %>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+ <div class="avatar">
+  <%= cl_image_tag current_user.photo.key, class: "avatar-large dropdown-toggle ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="dropdown-menu dropdown-menu-right">
+    <p><%= link_to "Créer une activité", new_activity_path, class: "dropdown-item"%></p>
+    <div class="dropdown-divider"></div>
+    <p><%= link_to "Mes activités", "destroy_user_session_path", class: "dropdown-item"%></p>
+    <div class="dropdown-divider"></div>
+    <p><%= link_to "Editer mon profil", "destroy_user_session_path", class: "dropdown-item" %></p>
+    <div class="dropdown-divider"></div>
+    <p><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></p>
+  </div>
+</div>

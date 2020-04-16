@@ -1,5 +1,9 @@
 class ActivitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+
   def index
+    @user = User.new
     @activities = Activity.all
       if params[:search].present? && params[:search][:sport_ou_lieu_ou_category].present?
         @activities = @activities.search_by_name_and_lieu_and_category(params[:search][:sport_ou_lieu_ou_category])
@@ -14,33 +18,35 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-
+    @user = User.new
     @activity = Activity.geocoded.find(params[:id])
-
-    array = [@activity]
-    @markers = array.map do |activity|
-      {
-        lat: activity.latitude,
-        lng: activity.longitude
-      }
-    end
+    @book = Book.new
+    @marker =
+    {
+      lat: @activity.latitude,
+      lng: @activity.longitude
+    }
   end
 
   def new
+    @user = User.new
     @activity = Activity.new
   end
 
   def create
     @activity = Activity.new(activity_params)
     @activity.user = current_user
-    if activity.save
+    @user = User.new
+
+    if @activity.save
       redirect_to activity_path(@activity)
     else
-      render new
+      render :new
     end
   end
 
   def edit
+    @user = User.new
     @activity = Activity.find(params[:id])
   end
 
@@ -49,7 +55,7 @@ class ActivitiesController < ApplicationController
     if @activity.update(activity_params)
       redirect_to activity_path(@activity)
     else
-      render edit
+      render :edit
     end
   end
 
@@ -62,6 +68,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(activity).permit(:name, :date, :level, :lieu, :comment, :category, :price)
+    params.require(:activity).permit(:name, :date, :level, :address, :comment, :category_id, :price)
   end
 end

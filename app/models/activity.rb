@@ -1,9 +1,12 @@
 class Activity < ApplicationRecord
+  LEVEL = ['débutant', 'découverte', 'intermédiaire', 'bon', 'expert', 'compétitif']
   belongs_to :user
   belongs_to :category
-  LEVEL = ['débutant', 'découverte', 'intermédiaire', 'bon', 'expert', 'compétitif']
+  has_many :books
+  validates :name, :category, :date,:address, :price, :level, presence: true
+  validates :name, :date,:address, length: { minimum: 1 }
   geocoded_by :address
-  after_create :geocode
+  after_validation :geocode
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_lieu_and_category,
