@@ -10,26 +10,22 @@ body {
 
 
 #map {
-  height: 100vh;
+  height: 90vh;
   width: 50%;
   border : 10px solid $blue;
   border-radius: 10px;
 }
 .show-description {
-  height: 100vh;
+  height: 90vh;
   width: 50%;
   text-align: left;
-  padding: 5px;
+  padding: 8px;
+  background-color: rgba(33, 104, 105, 0.08);
+  border-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-
-  .flex {
-    display: block;
-  }
-  .show-description {
-  height: 80vh;
-  }
+.show-description-text {
+  padding-left: 10px;
 }
 
 .marker {
@@ -39,4 +35,25 @@ body {
   width: 60px;
   height: 80px;
   cursor: pointer;
+}
+
+.blue {
+  color:$blue;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .flex {
+    display: block;
+  }
+  .show-description {
+    height: 70vh;
+    width:80%;
+    margin : 0 auto;
+  }
+
+  #map {
+    width: 80%;
+    margin : 0 auto;
+  }
 }

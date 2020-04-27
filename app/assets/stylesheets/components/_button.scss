@@ -6,13 +6,48 @@
   color: $gray;
   border : none;
   border : 2px solid $blue;
+  outline: none;
+  &:active {
+    outline: none;
+    text-decoration: none;
+    background-color: $blue;
+    border-radius : 30px;
+    padding: 4px 24px;
+    color: $gray;
+    border : none;
+    border : 2px solid $blue;
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
   &:hover {
     background-color: $gray;
     color: $blue;
     border : 2px solid $gray;
-  }
-  &:active {
-    text-decoration: none;
+    outline: none;
   }
 }
 
+.active{
+    outline: none;
+    text-decoration: none;
+    background-color: $blue;
+    border-radius : 30px;
+    padding: 4px 24px;
+    color: $gray;
+    border : none;
+    border : 2px solid $blue;
+    outline: none;
+}
+
+.non-active{
+    background-color: $gray;
+    color: $blue;
+    border : 2px solid $gray;
+    outline: none;
+    opacity: 0.7;
+  &:hover{
+    opacity: 1;
+  }
+}

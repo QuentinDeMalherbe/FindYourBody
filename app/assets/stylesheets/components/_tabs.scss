@@ -1,0 +1,19 @@
+
+.tab {
+  overflow: hidden;
+  background-color: transparent;
+  display : flex;
+  justify-content: center
+}
+
+.tablinks {
+  margin: 5px
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+

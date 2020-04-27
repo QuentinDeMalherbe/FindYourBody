@@ -1,0 +1,51 @@
+<!-- Tab links -->
+<%= render 'shared/navbar' %>
+<div class="tab">
+  <button class="tablinks button-primary active" data-name='Mescreation'>Mes créations</button>
+  <button class="tablinks button-primary non-active" data-name='Mesreservation'>Mes réservations</button>
+</div>
+
+<div class= "container">
+<!-- Tab content -->
+  <div id="Mescreation" class="tabcontent" style="display: block;">
+    <% @user.activities.each do |activity|%>
+      <%= link_to activity_path(activity)  do%>
+      <div class="card-dashboard">
+        <%= cl_image_tag(activity.category.photo.key, format: :jpg, style: 'width: 33%; padding: 2%; border-radius: 10%;') %>
+        <div class="card-dashboard-text">
+          <div class="card-dashboard-titre">
+            <h2><%= activity.name %> </h2>
+            <h4><%= activity.category.name %></h4>
+          </div>
+          <p><%= activity.address %></p>
+          <p><%= activity.date %></p>
+          <p><%= activity.price %> €</p>
+          <p><%= activity.comment %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="Mesreservation" class="tabcontent" style="display: none;">
+    <% @user.books.each do |book|%>
+      <%= link_to activity_path(book.activity)  do%>
+      <div class="card-dashboard">
+        <%= cl_image_tag(book.activity.category.photo.key, format: :jpg, style: 'width: 33% ;padding: 2%; border-radius: 10%;') %>
+        <div class="card-dashboard-text">
+          <div class="card-dashboard-titre">
+            <h2><%= book.activity.name %> </h2>
+            <h4><%= book.activity.category.name %></h4>
+          </div>
+          <p><%= book.activity.address %></p>
+          <p><%= book.activity.date %></p>
+          <p><%= book.activity.price %> €</p>
+          <p><%= book.activity.comment %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,5 +1,7 @@
 <div class="navbar">
-    <%= image_tag "logo.png", alt: "Find your buddy" %>
+    <%= link_to root_path do  %>
+      <%= image_tag "logo.png", alt: "Find your buddy" %>
+    <% end %>
     <% if !current_user %>
       <div class="connexion-button">
         <button type="button" class="button-primary" data-toggle="modal" data-target="#log_in">

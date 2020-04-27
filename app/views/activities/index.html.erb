@@ -12,8 +12,8 @@
           </div>
           <div class="content">
             <div class="title">
-              <h3><%= activity.name %> </h3>
-              <h4><%= activity.category.name %></h4>
+              <h3 style='height: 28px; overflow: hidden;'><%= activity.name %> </h3>
+              <h4  style='height: 24px; overflow: hidden;'><%= activity.category.name %></h4>
             </div>
             <div class="description">
               <p><%= Activity.level_in_string(activity.level) %></p>
